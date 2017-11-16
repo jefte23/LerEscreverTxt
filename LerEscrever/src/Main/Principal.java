@@ -1,9 +1,8 @@
 package Main;
 
-import java.util.ArrayList;
-
+import Control.ControleCadastrarCliente;
+import Control.ControleExibeClientes;
 import Model.BD;
-import Model.Cliente;
 
 public class Principal {
 
@@ -11,13 +10,20 @@ public class Principal {
 
 		// instanciar o banco de dados
 		BD bd = new BD();
-		// retornar o ArrayList de clientes
-		ArrayList<Cliente> clientes = bd.getClientes();
-		// Percorrer o ArrayList de clientes
-		for (int i = 0; i < clientes.size(); i++) {
-			System.out.println(clientes.get(i));
 
-		}
+		// Instanciar controleExibirClientes
+		ControleExibeClientes cec = new ControleExibeClientes(bd);
+		// instancia a classe de controle
+		ControleCadastrarCliente ccc = new ControleCadastrarCliente(bd);
+
+		// Executar o metodo cadastra cliente
+		ccc.CadastrarCliente();
+
+		// inserir um novo cliente
+		ccc.CadastrarCliente();
+
+		// Exibir todos os clientes
+		cec.exibeCliente();
 	}
 
 }
